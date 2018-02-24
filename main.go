@@ -32,5 +32,9 @@ func handler(w http.ResponseWriter, r *http.Request) {
 		fmt.Println(rsp)
 	}
 
-	fmt.Fprintf(w, rsp.String())
+	for _, driverInfo := range rsp.Drivers {
+		fmt.Fprintf(w, driverInfo.String(), "\n")
+	}
+
+	//fmt.Fprintf(w, rsp.String())
 }
